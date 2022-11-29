@@ -22,6 +22,7 @@ export default function Home() {
           <a className={styles.card}>
             <h2>Anime Name &rarr;</h2>
             <p>Anime description</p>
+            <button className="btn btn-primary">Remove</button>
           </a>
         </div>
       </main>
