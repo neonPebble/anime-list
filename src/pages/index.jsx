@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
+import { trpc } from "lib/utils";
 
 export default function Home() {
+  const hello = trpc.hello.useQuery({ text: "client" });
   return (
     <div className={styles.container}>
       <Head>
@@ -17,6 +19,8 @@ export default function Home() {
         <p className={styles.description}>
           Get started by <code className={styles.code}>Signing up</code>
         </p>
+
+        <p>{hello?.data ? hello.data.greeting : "Loading..."}</p>
 
         <div className={styles.grid}>
           <a className={styles.card}>
